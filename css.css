@@ -2,7 +2,7 @@
     border: 1px;
 }
 
-img {
+.pic {
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 5px;
@@ -13,3 +13,7 @@ img {
   margin-left: auto;
   margin-right: auto;
   }
+
+.imageDescription {
+    text-align: center;
+}
