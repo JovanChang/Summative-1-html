@@ -61,7 +61,7 @@
             <a href="#hero" data-after="hero" class="nav-link">Home</a>
           </li>
           <li class="nav-item active">
-            <a href="#" class="nav-link">Artworks</a>
+            <a href="#artistsHeading" class="nav-link">Artworks</a>
           </li>
           <li class="nav-item active">
             <a href="#" class="nav-link">Artists</a>
@@ -75,7 +75,6 @@
     </nav>
 
 <!--This is a embedded video from youtube: https://www.youtube.com/watch?v=xHV_8seCqs0&ab_channel=TheMuseumofModernArt -->
-<!--Unresponsive to mobile-->
     <div id="hero" class="container-fluid">
       <div class="row">
         <div id="ytPlayer" class="col-md-6">
@@ -120,9 +119,9 @@
   <div class="mySlides">
     <div class="numbertext">3 / 3</div>
     <div class="d-flex justify-content-center">
-      <img src="img3.jpg" style="width: 50%" alt="Oops this image is not loading">
+      <img src="images/albers_anni.jpg" style="width: 50%" alt="Oops this image is not loading">
     </div>
-    <div class="text">Caption Three</div>
+    <div class="text">Albers Anni</div>
   </div>
 
   <!-- Next and previous buttons -->
@@ -141,8 +140,13 @@
     <button id="press" class="collapsible; btn btn-primary">Interesting Statistic of Artworks</button>
 
     <p id="hiddenText"></p>
-<!--Using circular barplot visualizarion from https://d3-graph-gallery.com/graph/circular_barplot_label.html -->
-    <div id="my_dataviz"></div>
+<!--Using barplot visualizarion from https://d3-graph-gallery.com/graph/barplot_ordered.html -->
+    <div class="container-fluid">
+      <div id="artworks_stats" class="row">
+        <div id="my_dataviz" class="col-md-4"></div>
+      </div>
+    </div>
+    
     <div class="container">
       <form>
         <div id="formHead" class="form-text h2">Contact Us</div>
@@ -164,7 +168,7 @@
           <label for="exampleInputComment" class="form-label">Comments</label>
           <input type="comment" class="form-control" id="exampleInputComment" />
           <p></p> <!--add a space for better cisual-->
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button id="contact_submit" type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
     <!-- Optional JavaScript -->

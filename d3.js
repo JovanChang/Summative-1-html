@@ -1,14 +1,14 @@
 // d3.csv("/dataset/artworks.csv", function(data) {
 //     console.log(data);
 // });
-d3.csv("/dataset/artworks_class.csv", function(data) {
-    console.log(data);
-})
+// d3.csv("/dataset/artworks_class.csv", function(data) {
+//     console.log(data);
+// })
 
 // set the dimensions and margins of the graph 
 
-const margin = {top: 30, right: 30, bottom: 70, left: 60},
-    width = 460 - margin.left - margin.right,
+const margin = {top: 80, right: 60, bottom: 100, left: 60},
+    width = 480 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
@@ -56,5 +56,13 @@ d3.csv("/dataset/artworks_class.csv").then ( function(data) {
       .attr("width", x.bandwidth())
       .attr("height", d => height - y(d.Value))
       .attr("fill", "#69b3a2")
+
+      svg.append("text")
+      .attr("x", (width / 2))             
+      .attr("y", 0 - (margin.top / 2))
+      .attr("text-anchor", "middle")  
+      .style("font-size", "16px") 
+      .style("text-decoration", "underline")  
+      .text("Top catorgeries of artworks in the museum");
 
 })

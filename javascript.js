@@ -1,8 +1,20 @@
-document.getElementById('press').addEventListener('click', Text);
+const Arts_Stats = document.getElementById("artworks_stats")
 
-function Text() {
-    document.getElementById('hiddenText').innerHTML = 'Wow this paragraph is not hidden anymore';
-}
+const btn = document.getElementById("press")
+
+btn.onclick = function () {
+   if (Arts_Stats.style.display !== "none") {
+    Arts_Stats.style.display = "none";
+   } else {
+    Arts_Stats.style.display = "block"
+   }
+  };
+
+const reply = document.getElementById("contact_submit")
+
+reply.onclick = function () {
+  window.alert("Thank you for leaving a message! You will be replied very soon")
+};
 
 //slideshow function from w3school: https://www.w3schools.com/howto/howto_js_slideshow.asp
 let slideIndex = 1;
