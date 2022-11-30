@@ -21,7 +21,7 @@
     <title>Programming Gold Summative HTML</title>
     <link rel="stylesheet" href="css.css" />
     <!--d3 import-->
-    <script src="https://d3js.org/d3.v6.min.js" defer></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
     <!--d3 scale package source:https://github.com/d3/d3-scale -->
     <script type="module">
 
@@ -41,9 +41,10 @@
       <!--added defer to javascript in order for the package to load in first-->
     <script src="javascript.js" defer></script>
     <script src="d3.js" defer></script>
+    <script src="d32.js" defer></script>
   </head>
   <body>
-    <h1 class="text-center h3">Arts from the Modern Museum of Arts</h1>
+    <h3 class="text-center">Arts from the Modern Museum of Arts</h3>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
       <button
         type="button"
@@ -61,10 +62,10 @@
             <a href="#hero" data-after="hero" class="nav-link">Home</a>
           </li>
           <li class="nav-item active">
-            <a href="#artistsHeading" class="nav-link">Artworks</a>
+            <a href="#artistsHeading" class="nav-link">Artists</a>
           </li>
           <li class="nav-item active">
-            <a href="#" class="nav-link">Artists</a>
+            <a href="#" class="nav-link">Artworks</a>
           </li>
         </ul>
       </div>
@@ -113,7 +114,6 @@
       <img src="images/berenice_abbott.jpg" style="width:50%" alt="Oops this image is not loading">
     </div>
     <div class="text">Berenice Abbott</div>
-    <p class=""></p>
   </div>
 
   <div class="mySlides">
@@ -137,27 +137,29 @@
   <span class="dot" onclick="currentSlide(3)"></span>
 </div>
 
-    <button id="press" class="collapsible; btn btn-primary">Interesting Statistic of Artworks</button>
+    <button id="class_btn" class="collapsible; btn btn-primary">Ranking of artworks Classification</button>
 
-    <p id="hiddenText"></p>
+    <button id="nationality_btn" class="collapsible; btn btn-dark">Nationality of Artists in the museum</button>
 <!--Using barplot visualizarion from https://d3-graph-gallery.com/graph/barplot_ordered.html -->
-    <div class="container-fluid">
-      <div id="artworks_stats" class="row">
-        <div id="my_dataviz" class="col-md-4"></div>
-      </div>
-    </div>
+<div>        
+  <div id="my_dataviz"></div>
+</div>
+
+<div class="container">
+  <div id="circular_barchart"></div>
+</div>
     
     <div class="container">
       <form>
         <div id="formHead" class="form-text h2">Contact Us</div>
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label"
+          <label for="InputEmail1" class="form-label"
             >Email address</label
           >
           <input
             type="email"
             class="form-control"
-            id="exampleInputEmail1"
+            id="InputEmail1"
             aria-describedby="emailHelp"
           />
           <div id="emailHelp" class="form-text">

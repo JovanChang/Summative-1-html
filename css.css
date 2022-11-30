@@ -47,7 +47,11 @@ iframe {
   font-size:xx-large;
 }
 
-#artowrks_stats {
+#my_dataviz {
+  display: none;
+}
+
+#circular_barchart {
   display: none;
 }
 /* CSS properties from w3school: https://www.w3schools.com/howto/howto_js_slideshow.asp
