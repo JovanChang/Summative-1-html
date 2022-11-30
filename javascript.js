@@ -1,3 +1,9 @@
+const search = document.getElementById('search_btn');
+
+search.onclick = function () {
+  window.alert('Could not find your search term');
+};
+
 const artsStats = document.getElementById('my_dataviz');
 
 const artistsStats = document.getElementById('circular_barchart');
@@ -38,11 +44,13 @@ let slideIndex = 1;
 showSlides(slideIndex);
 
 // Next/previous controls
+// eslint-disable-next-line no-unused-vars
 function plusSlides (n) {
   showSlides(slideIndex += n);
 }
 
 // Thumbnail image controls
+// eslint-disable-next-line no-unused-vars
 function currentSlide (n) {
   showSlides(slideIndex = n);
 }

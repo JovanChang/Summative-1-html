@@ -44,8 +44,7 @@
     <script src="d32.js" defer></script>
   </head>
   <body>
-    <h3 class="text-center">Arts from the Modern Museum of Arts</h3>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark">
       <button
         type="button"
         data-toggle="collapse"
@@ -68,15 +67,17 @@
             <a href="#" class="nav-link">Artworks</a>
           </li>
         </ul>
+        <span class="navbar-text text-center h3">
+          The Museum of Modern Art
+        </span>
       </div>
       <form class="d-flex">
         <input type="text" class="form-control me-2" />
-        <button type="submit" class="btn btn-primary">Search</button>
+        <button type="submit" class="btn btn-primary" id="search_btn">Search</button>
       </form>
     </nav>
-
 <!--This is a embedded video from youtube: https://www.youtube.com/watch?v=xHV_8seCqs0&ab_channel=TheMuseumofModernArt -->
-    <div id="hero" class="container-fluid">
+    <div id="hero" class=".navbar container-fluid">
       <div class="row">
         <div id="ytPlayer" class="col-md-6">
           <iframe

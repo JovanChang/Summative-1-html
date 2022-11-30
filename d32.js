@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 // set the dimensions and margins of the graph
 const margin1 = { top: 100, right: 0, bottom: 0, left: 0 };
     const width1 = 1200 - margin1.left - margin1.right;
@@ -13,40 +14,56 @@ const svg1 = d3.select('#circular_barchart')
   .append('g')
     .attr('transform', `translate(${width1 / 2 + margin1.left}, ${height1 / 2 + margin1.top})`);
 
-d3.csv('https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/7_OneCatOneNum.csv').then(function (data) {
+    d3.csv('/dataset/artists.csv').then(function (data) {
+      const result = [];
+
+      data.forEach(function (a) {
+        if (!this[a.Nationality]) {
+            this[a.Nationality] = {
+                Nationality: a.Nationality,
+                orders: 0
+            };
+            result.push(this[a.Nationality]);
+        }
+        this[a.Nationality].orders += 1;
+    }, Object.create(null));
+    console.log(result);
+  // sort data
+  result.sort(function (b, a) {
+    return a.orders - b.orders;
+  });
   // Scales
   const x = d3.scaleBand()
       .range([0, 2 * Math.PI]) // X axis goes from 0 to 2pi = all around the circle. If I stop at 1Pi, it will be around a half circle
       .align(0) // This does nothing
-      .domain(data.map(d => d.Country)); // The domain of the X axis is the list of states.
+      .domain(data.map(d => d.Nationality)); // The domain of the X axis is the list of states.
   const y = d3.scaleRadial()
       .range([innerRadius, outerRadius]) // Domain will be define later.
-      .domain([0, 14000]); // Domain of Y is from 0 to the max seen in the data
+      .domain([0, 4000]); // Domain of Y is from 0 to the max seen in the data
 
   // Add the bars
   svg1.append('g')
     .selectAll('path')
-    .data(data)
+    .data(result)
     .join('path')
       .attr('fill', '#69b3a2')
       .attr('d', d3.arc() // imagine your doing a part of a donut plot
           .innerRadius(innerRadius)
-          .outerRadius(d => y(d.Value))
-          .startAngle(d => x(d.Country))
-          .endAngle(d => x(d.Country) + x.bandwidth())
+          .outerRadius(d => y(d.orders))
+          .startAngle(d => x(d.Nationality))
+          .endAngle(d => x(d.Nationality) + x.bandwidth())
           .padAngle(0.01)
-          .padRadius(innerRadius));
+          .padRadius(innerRadius))
+          .append('title')
+      .text((result) => {
+        return 'Nationality: ' + result.Nationality + ' Value: ' + result.orders;
+      });
 
-  // Add the labels
-  svg1.append('g')
-      .selectAll('g')
-      .data(data)
-      .join('g')
-        .attr('text-anchor', function (d) { return (x(d.Country) + x.bandwidth() / 2 + Math.PI) % (2 * Math.PI) < Math.PI ? 'end' : 'start'; })
-        .attr('transform', function (d) { return 'rotate(' + ((x(d.Country) + x.bandwidth() / 2) * 180 / Math.PI - 90) + ')' + 'translate(' + (y(d.Value) + 10) + ',0)'; })
-      .append('text')
-        .text(function (d) { return (d.Country); })
-        .attr('transform', function (d) { return (x(d.Country) + x.bandwidth() / 2 + Math.PI) % (2 * Math.PI) < Math.PI ? 'rotate(180)' : 'rotate(0)'; })
-        .style('font-size', '11px')
-        .attr('alignment-baseline', 'middle');
+      svg1.append('text')
+      .attr('x', (height1 / 2))
+      .attr('y', 0 - (margin1.left / 2))
+      .attr('text-anchor', 'middle')
+      .style('font-size', '16px')
+      .style('text-decoration', 'underline')
+      .text('Hover over bars to see the nationality');
 });

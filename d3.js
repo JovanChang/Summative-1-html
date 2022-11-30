@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 // d3.csv("/dataset/artworks.csv", function(data) {
 //     console.log(data);
 // });
@@ -66,7 +67,11 @@ d3.csv('/dataset/artworks.csv').then(function (data) {
     .attr('y', d => y(d.orders))
     .attr('width', x.bandwidth())
     .attr('height', d => height - y(d.orders))
-    .attr('fill', '#69b3a2');
+    .attr('fill', '#69b3a2')
+    .append('title')
+    .text((result) => {
+      return result.orders;
+    });
 
   svg.append('text')
     .attr('x', (width / 2))
