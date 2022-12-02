@@ -23,7 +23,11 @@ http://127.0.0.1:8000
 ```
 ## Step 3: Navigate through the files
 To view the html page, click on the ("mainpage.html")
-You can the scripts by clicking ("javascript.js"), all d3 scripts and js functions are included in this file.
+
+You can view the scripts by clicking ("javascript.js"), all d3 scripts and js functions are included in this file.
+
 For the jsDoc, it will be located in the ("out/") file.
+
 Datasets can be viewed through the ("datasets/"), or you can download them via Kaggle ("https://www.kaggle.com/datasets/momanyc/museum-collection")
+
 Images used in the website are all located in ("images/"), images reference can be viewed in HTML comments respectively
