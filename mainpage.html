@@ -40,8 +40,6 @@
       </script>
       <!--added defer to javascript in order for the package to load in first-->
     <script src="javascript.js" defer></script>
-    <script src="d3.js" defer></script>
-    <script src="d32.js" defer></script>
   </head>
   <body>
     <nav class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark">
@@ -64,7 +62,7 @@
             <a href="#artistsHeading" class="nav-link">Artists</a>
           </li>
           <li class="nav-item active">
-            <a href="#" class="nav-link">Artworks</a>
+            <a href="#artworksHeading" class="nav-link">Artworks</a>
           </li>
         </ul>
         <span class="navbar-text text-center h3">
@@ -138,6 +136,24 @@
   <span class="dot" onclick="currentSlide(3)"></span>
 </div>
 
+<div id="artworksHeading">
+</div>
+  <div class="row">
+    <div class="col-md-4">
+      <img class="img1" src="/images/Naotaka Hiro (Untitled (Pinnacle)).svg" alt="" class="img-fluid max-width: 100% height: auto">
+      <p id="des_img">Naotaka Hiro (Untitled(Pinnacle))</p>
+    </div>
+    <div class="col-md-4">
+      <img src="/images/Kerry James Marshall (Untitled (policeman)).svg" alt="" class="img-fluid max-width: 100% height: auto">
+      <p id="des_img">Kerry James Marshall (Untitled (policeman))</p>
+    </div>
+    <div class="col-md-4">
+      <img src="images/Xu Bing (Art for the People for The Met from the portfolio The Met 150).svg" alt="" class="img-fluid max-width: 100% height: auto">
+      <p id="des_img">Xu Bing (Art for the People for The Met from the portfolio The Met 150)</p>
+    </div>
+  </div>
+</div>
+</div>
     <button id="class_btn" class="collapsible; btn btn-primary">Ranking of artworks Classification</button>
 
     <button id="nationality_btn" class="collapsible; btn btn-dark">Nationality of Artists in the museum</button>
