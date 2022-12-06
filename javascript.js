@@ -1,12 +1,13 @@
 /**
  * Search Bar
- * @type {Element} HTML element
+ * @type {Element}
  */
+
 const search = document.getElementById('search_btn');
 
 /**
  * Search bar function
- * @param {string} search -the search button element in html
+ * @param {string} search
  */
 search.onclick = function () {
   window.alert('Could not find your search term');
@@ -14,31 +15,31 @@ search.onclick = function () {
 
 /**
  * The svg HTML element forming from d3.csv("artworks.csv")
- * @type {Element} -svg HTML element
+ * @type {Element}
  */
 const artsStats = document.getElementById('my_dataviz');
 
 /**
  * The svg HTML element forming from d3.csv("artists.csv")
- * @type {Element} -svg HTML element
+ * @type {Element}
  */
 const artistsStats = document.getElementById('circular_barchart');
 
 /**
  * HTML button element toggling the svg element "artsStats"
- * @type {Element} -button HTML element
+ * @type {Element}
  */
 const btn1 = document.getElementById('class_btn');
 
 /**
  * HTML button element toggling the svg element "artistsStats"
- * @type {Element} -button HTML element
+ * @type {Element}
  */
 const btn2 = document.getElementById('nationality_btn');
 
 /**
  * Function for toggling the svg HTML element using the (btn1) button HTML element
- * @param {string} search -the button HTML element (btn1)
+ * @param {string} search
  */
 btn1.onclick = function () {
   if (artsStats.style.display !== 'block') {
@@ -50,7 +51,7 @@ btn1.onclick = function () {
 
 /**
  * Function for toggling the svg HTML element using the (btn2) button HTML element
- * @param {Element} search -the button HTML (btn2)
+ * @param {Element} search
  */
 btn2.onclick = function () {
   if (artistsStats.style.display !== 'block') {
@@ -62,13 +63,13 @@ btn2.onclick = function () {
 
 /**
  * HTML button element to submit HTML form
- * @type {Element} the form submit HTML button
+ * @type {Element}
  */
 const reply = document.getElementById('contact_submit');
 
 /**
  * Function sending an alert message after clicking on the (reply) HTML element
- * @param {Element} reply -the buttin HTML element (reply)
+ * @param {Element} reply
  */
 reply.onclick = function () {
     window.alert('Thank you for leaving a message! You will be replied very soon');
@@ -181,7 +182,7 @@ console.log(result);
     .text((result) => {
       return result.orders;
     });
-
+// add title labels to the graph
   svg.append('text')
     .attr('x', (width / 2))
     .attr('y', 0 - (margin.top / 2))
@@ -228,11 +229,11 @@ const svg1 = d3.select('#circular_barchart')
   // Scales
   const x = d3.scaleBand()
       .range([0, 2 * Math.PI]) // X axis goes from 0 to 2pi = all around the circle. If I stop at 1Pi, it will be around a half circle
-      .align(0) // This does nothing
-      .domain(data.map(d => d.Nationality)); // The domain of the X axis is the list of states.
+      .align(0)
+      .domain(data.map(d => d.Nationality));
   const y = d3.scaleRadial()
-      .range([innerRadius, outerRadius]) // Domain will be define later.
-      .domain([0, 4000]); // Domain of Y is from 0 to the max seen in the data
+      .range([innerRadius, outerRadius])
+      .domain([0, 4000]);
 
   // Add the bars
   svg1.append('g')
@@ -240,7 +241,7 @@ const svg1 = d3.select('#circular_barchart')
     .data(result)
     .join('path')
       .attr('fill', '#69b3a2')
-      .attr('d', d3.arc() // imagine your doing a part of a donut plot
+      .attr('d', d3.arc()
           .innerRadius(innerRadius)
           .outerRadius(d => y(d.orders))
           .startAngle(d => x(d.Nationality))
